@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="card p-4 shadow-sm" style="min-width: 350px;">
+        <h2 class="text-center mb-4">Вхід</h2>
+        <form method="post">
+            <div class="mb-3">
+                <label for="login" class="form-label">Логін:</label>
+                <input name="login" id="login" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Пароль:</label>
+                <input name="password" type="password" id="password" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Увійти</button>
+        </form>
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="text-danger text-center mt-3">@ViewBag.Error</div>
+        }
+    </div>
+</div>

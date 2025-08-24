@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AutoPartsStore.Models.Employee">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAIAgACAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Employee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoPartsStore.Models.Application">
+    <Position X="12.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAEQAAAAIAAAAAAAAAAEAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Application.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoPartsStore.Models.PageInfo">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAgAAAAAAAAAAAAAAAAAUAAQAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Models\PageInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoPartsStore.Data.HRContext">
+    <Position X="0.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\HRContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

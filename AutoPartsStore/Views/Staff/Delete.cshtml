@@ -1,0 +1,36 @@
+﻿@model AutoPartsStore.Models.Employee
+
+@{
+    ViewBag.Title = "Підтвердження видалення";
+}
+
+<h2 class="mb-4">Підтвердження видалення</h2>
+
+<div class="alert alert-warning">
+    <strong>Увага!</strong> Ви дійсно хочете видалити працівника <b>@Model.FullName</b>?
+</div>
+
+<table class="table table-bordered" style="max-width: 600px;">
+    <tr>
+        <th style="width: 150px;">Посада</th>
+        <td>@Model.Position</td>
+    </tr>
+    <tr>
+        <th>Відділ</th>
+        <td>@Model.Department</td>
+    </tr>
+    @* ===== ДОДАНО ВІДОБРАЖЕННЯ ДАТИ ===== *@
+    <tr>
+        <th>Дата додавання</th>
+        <td>@Model.CreatedAt.ToString("g")</td>
+    </tr>
+</table>
+
+@* Ваша форма видалення, але з класами кнопок з вашого CSS *@
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id)
+    <button type="submit" class="btn btn-delete">Так, видалити</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary ms-2">Скасувати</a>
+}

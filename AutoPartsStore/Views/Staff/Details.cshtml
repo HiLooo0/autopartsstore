@@ -1,0 +1,32 @@
+﻿@model AutoPartsStore.Models.Employee
+
+@{
+    ViewBag.Title = "Деталі працівника";
+}
+
+<h2>Деталі працівника</h2>
+
+<table class="table table-bordered table-striped" style="max-width: 600px;">
+    <tr>
+        <th style="width: 150px;">ПІБ:</th>
+        <td>@Model.FullName</td>
+    </tr>
+    <tr>
+        <th>Посада:</th>
+        <td>@Model.Position</td>
+    </tr>
+    <tr>
+        <th>Відділ:</th>
+        <td>@Model.Department</td>
+    </tr>
+    @* ===== ДОДАНО ВІДОБРАЖЕННЯ ДАТИ ===== *@
+    <tr>
+        <th>Дата додавання:</th>
+        <td>@Model.CreatedAt.ToString("g")</td> @* Форматуємо для кращого вигляду (дата і час без секунд) *@
+    </tr>
+</table>
+
+<p>
+    @Html.ActionLink("Редагувати", "Edit", new { id = Model.Id }, new { @class = "btn btn-edit" })
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Назад до списку</a>
+</p>

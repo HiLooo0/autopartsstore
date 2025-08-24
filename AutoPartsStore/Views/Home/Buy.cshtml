@@ -1,0 +1,33 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Замовлення</title>
+</head>
+<body>
+    <div>
+        <h3>Форма замовлення</h3>
+        <form method="post">
+            <input type="hidden" value="@ViewBag.PartId" name="PartId" />
+            <table>
+                <tr>
+                    <td><p>Ваше ім’я:</p></td>
+                    <td><input type="text" name="Person" /></td>
+                </tr>
+                <tr>
+                    <td><p>Адреса доставки:</p></td>
+                    <td><input type="text" name="Address" /></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Оформити" /></td>
+                    <td></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

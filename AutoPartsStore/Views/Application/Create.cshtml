@@ -1,0 +1,52 @@
+﻿@model AutoPartsStore.Models.Application
+
+@{
+    ViewBag.Title = "Подання заявки";
+}
+
+<h2>Подання заявки</h2>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">@TempData["Message"]</div>
+}
+
+@* Використовуємо форму з кращою структурою для Bootstrap *@
+@using (Html.BeginForm())
+{
+    @* ===== ГОЛОВНЕ ВИПРАВЛЕННЯ: Цей рядок виправляє вашу помилку ===== *@
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group mb-3">
+            @Html.LabelFor(model => model.FullName, "Ваше повне ім'я (ПІБ)", new { @class = "form-label" })
+            @Html.TextBoxFor(model => model.FullName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group mb-3">
+            @Html.LabelFor(model => model.DesiredPosition, "Бажана посада", new { @class = "form-label" })
+            @Html.TextBoxFor(model => model.DesiredPosition, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.DesiredPosition, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group mb-3">
+            @Html.LabelFor(model => model.Department, "Відділ (наприклад, IT)", new { @class = "form-label" })
+            @Html.TextBoxFor(model => model.Department, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Department, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group mb-3">
+            @Html.LabelFor(model => model.Comment, "Коментар (необов'язково)", new { @class = "form-label" })
+            @Html.TextAreaFor(model => model.Comment, new { @class = "form-control", rows = 4 })
+            @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group mt-4">
+            <button type="submit" class="btn btn-primary">Подати заявку</button>
+        </div>
+    </div>
+}

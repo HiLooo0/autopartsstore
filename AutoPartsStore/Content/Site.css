@@ -1,0 +1,177 @@
+﻿/* =================================================================== */
+/* ============= СТИЛЬ: "СЕРЙОЗНИЙ І МОНОТОННИЙ" ============= */
+/* =================================================================== */
+
+/* --- 1. Базові стилі та типографіка --- */
+body {
+    padding-top: 75px;
+    padding-bottom: 40px;
+    background-color: #f8f9fa; /* Дуже світлий сірий фон */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #212529; /* Майже чорний текст */
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- 2. Контейнер та заголовки --- */
+.body-content {
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: 1px solid #e9ecef;
+}
+
+h2 {
+    color: #343a40;
+    font-weight: 300; /* Робить шрифт тоншим і "легшим" */
+    letter-spacing: 0.5px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+/* --- 3. Навігація (хедер) --- */
+.navbar.fixed-top {
+    background-color: #ffffff !important; /* Білий хедер */
+    border-bottom: 1px solid #dee2e6;
+    box-shadow: none;
+}
+
+.navbar-brand, .navbar .nav-link {
+    color: #495057 !important; /* Темно-сірий текст */
+    font-weight: 600;
+}
+
+    .navbar .nav-link.active, .navbar .nav-link:hover {
+        color: #0d6efd !important; /* Синій акцент при наведенні або активності */
+    }
+
+
+/* --- 4. Базовий стиль кнопок (монотонний) --- */
+.btn {
+    padding: 8px 20px;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+    border-width: 2px;
+    border-style: solid;
+    text-transform: none; /* Звичайний текст, не верхній регістр */
+}
+
+/* Основна кнопка (синя) */
+.btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    color: white;
+}
+
+    .btn-primary:hover {
+        background-color: #0b5ed7;
+        border-color: #0a58ca;
+    }
+
+/* Вторинна кнопка (сіра) */
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+}
+
+    .btn-secondary:hover {
+        background-color: #5c636a;
+        border-color: #565e64;
+    }
+
+/* Небезпечна кнопка (червона) */
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: white;
+}
+
+    .btn-danger:hover {
+        background-color: #bb2d3b;
+        border-color: #b02a37;
+    }
+
+/* Зелена кнопка (якщо потрібна) */
+.btn-success {
+    background-color: #198754;
+    border-color: #198754;
+    color: white;
+}
+
+    .btn-success:hover {
+        background-color: #157347;
+        border-color: #146c43;
+    }
+
+
+/* --- 5. Спеціальні кнопки дій у таблиці (монотонні) --- */
+.table-actions .btn {
+    background-color: transparent; /* Прозорий фон */
+    color: #6c757d; /* Сірий текст */
+    border-color: #ced4da; /* Світло-сіра рамка */
+    padding: 4px 10px;
+    font-size: 13px;
+}
+
+/* Ефект при наведенні: кнопка стає кольоровою */
+.table-actions .btn-info:hover {
+    background-color: #0dcaf0;
+    border-color: #0dcaf0;
+    color: white;
+}
+
+.table-actions .btn-edit:hover {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: #212529; /* Чорний текст на жовтому */
+}
+
+.table-actions .btn-delete:hover {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: white;
+}
+
+
+/* --- 6. Таблиці --- */
+.table {
+    border: 1px solid #dee2e6;
+}
+
+    .table thead th {
+        background-color: #f8f9fa; /* Світло-сіра шапка */
+        color: #212529;
+        font-weight: 600;
+        border-bottom-width: 2px;
+        border-color: #dee2e6;
+    }
+
+    .table tbody tr:nth-of-type(odd) {
+        background-color: rgba(0, 0, 0, 0.02); /* Легке "зебра" для рядків */
+    }
+
+
+/* --- 7. Форми та фільтри --- */
+.form-label {
+    font-weight: 600;
+    color: #495057;
+}
+
+.form-control, .form-select {
+    border-radius: 4px;
+}
+
+
+/* --- 8. Картки (використовуються на сторінці Delete та About) --- */
+.card {
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    border-bottom: 1px solid #dee2e6;
+}

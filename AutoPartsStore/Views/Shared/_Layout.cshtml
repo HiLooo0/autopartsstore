@@ -1,0 +1,80 @@
+﻿@using System.Web
+@{
+    var role = Session["Role"]?.ToString();
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - Відділ кадрів</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Ваш кастомний CSS -->
+    <link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="@Url.Action("Index", "Home")">Відділ кадрів</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    @* ===== ЗМІНА №1: Посилання "Про сайт" тепер поза умовою ===== *@
+                    <li class="nav-item">
+                        @Html.ActionLink("Про сайт", "About", "Home", null, new { @class = "nav-link" })
+                    </li>
+
+                    @* Перевіряємо, чи користувач увійшов в систему, для решти посилань *@
+                    @if (role != null)
+                    {
+                        @* Посилання тільки для Адміністратора *@
+                        if (role == "admin")
+                        {
+                            <li class="nav-item">
+                                @Html.ActionLink("Працівники", "Index", "Staff", null, new { @class = "nav-link" })
+                            </li>
+                            <li class="nav-item">
+                                @Html.ActionLink("Вхідні заявки", "Inbox", "Application", null, new { @class = "nav-link" })
+                            </li>
+                        }
+                        @* Посилання тільки для Користувача *@
+                        else if (role == "user")
+                        {
+                            <li class="nav-item">
+                                @Html.ActionLink("Подати заявку", "Create", "Application", null, new { @class = "nav-link" })
+                            </li>
+                        }
+                    }
+                </ul>
+                <div class="d-flex">
+                    @if (!string.IsNullOrEmpty(role))
+                    {
+                        <span class="navbar-text text-white me-3">Вітаємо, @Session["Username"]!</span>
+                        <a href="@Url.Action("Logout", "Account")" class="btn btn-outline-danger ms-2">Вийти</a>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("Login", "Account")" class="btn btn-outline-success ms-2">Увійти</a>
+                    }
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    <!-- jQuery + Bootstrap Bundle JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
